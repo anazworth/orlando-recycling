@@ -21,7 +21,7 @@ jobs:
         ports:
           - "3306:3306"
         env:
-          MYSQL_DATABASE: test_db
+          MYSQL_DATABASE: orlando_recycling
           MYSQL_USER: test
           MYSQL_PASSWORD: password
           MYSQL_ROOT_PASSWORD: password
