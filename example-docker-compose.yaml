@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  web-db:
+    image: mysql:8.3.0
+    container_name: web-db
+    environment:
+      MYSQL_DATABASE: "<database_name>"
+      MYSQL_USER: "<user_name>"
+      MYSQL_ROOT_PASSWORD: "<root_password>"
+      MYSQL_PASSWORD: "<password>"
+    ports:
+      - "3306:3306"
