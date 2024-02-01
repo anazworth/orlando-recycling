@@ -32,6 +32,7 @@ DEBUG = True if get_env("DJANGO_DEBUG") == "True" else False
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = ["*"] if get_env("ENV") == "development" else []
 
 # Application definition
 
