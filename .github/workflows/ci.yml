@@ -34,7 +34,7 @@ jobs:
     env:
       DJANGO_SECRET_KEY: test_secret_key
       DJANGO_DEBUG: "True"
-      DB_NAME: test_db
+      DB_NAME: orlando_recycling
       DB_USER: test
       DB_PASSWORD: password
       DB_HOST: 127.0.0.1
