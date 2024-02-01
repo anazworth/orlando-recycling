@@ -29,6 +29,7 @@ schema_view = get_schema_view(
         terms_of_service="https://github.com/anazworth",
     ),
     public=True,
+    url=environ.get("DEV_API_URL") if environ.get("ENV") == "development" else None,
 )
 
 urlpatterns = [
