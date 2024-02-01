@@ -25,7 +25,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Orlando Recycling Information API",
         default_version="v1",
-        description="An API for Orlando recycling information\n\nRepository: https://github.com/anazworth",
+        description="An API for Orlando recycling information\n\nRepository: https://github.com/anazworth/orlando-recycling",
         terms_of_service="https://github.com/anazworth",
     ),
     public=True,
