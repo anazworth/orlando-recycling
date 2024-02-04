@@ -1,6 +1,8 @@
 # Orlando Recycling
 
 ## Table of Contents
+
+- [Overview](#overview)
 - [Installation](#installation)
 - [Run the application](#run-the-application)
 - [Testing](#testing)
@@ -8,6 +10,12 @@
 - [How to contribute](#how-to-contribute)
 - [Reporting bugs, issues, or feature requests](#reporting-bugs-issues-or-feature-requests)
 - [Devcontainer](#devcontainer)
+
+## Overview
+
+To create an application that helps citizens of Orlando and its surrounding areas to
+differentiate between recyclable and non-recyclable goods and provide more
+information on how they can properly recycle. We will also support the Mobile-Development teams through a Backend API.
 
 ## Installation
 
