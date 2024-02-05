@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% if title %} {{title}} {% else %} Orlando Recycles {% endif %}</title>
+  <meta name="description" content="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wdth,wght@62.5..100,100..900&display=swap" rel="stylesheet">
+</head>
+
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% bootstrap_messages %}
+<body class="d-flex flex-column h-100">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      font-optical-sizing: auto;
+    }
+  </style>
+  <nav class="navbar container border-bottom">
+    <div class="container-fluid">
+      <a href="/" class="navbar-brand fw-semibold fs-3">Orlando Recycles</a>
+    </div>
+  </nav>
+  {% block content %}
+  {% endblock %}
+  <footer class="footer mt-auto py-4 container border-top d-flex flex-wrap justify-content-between align-items-center">
+      <div class="col-md-4 d-flex align-items-center text-nowrap">
+        <a href="/" class="navbar-brand fs-4 mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">Orlando Recycles</a>
+        <span class="mb-3 mb-md-0 fw-normal">© {% now "Y" %} Orlando</span>
+      </div>
+      <span style="font-family: Noto Sans Mono, monospace;">Made with ❤️ by Valencia CTSD</span>
+  </footer>
+</body>
+</html>

@@ -7,9 +7,8 @@ from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
 # Create your views here.
-@api_view(["GET"])
 def index(request):
-    return HttpResponse("Hello, world. You're at the items index.")
+    return render(request, "items/index.html")
 
 @swagger_auto_schema(method="get",
                      operation_description="Search for items by name",

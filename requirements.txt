@@ -3,3 +3,4 @@ djangorestframework
 python-dotenv
 drf-yasg
 mysqlclient
+django-bootstrap5

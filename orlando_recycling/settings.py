@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "items.apps.ItemsConfig",
     "rest_framework",
     "drf_yasg",
+    "django_bootstrap5",
 ]
 
 SWAGGER_SETTINGS = {
