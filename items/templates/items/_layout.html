@@ -28,6 +28,11 @@
   <nav class="navbar container border-bottom">
     <div class="container-fluid">
       <a href="/" class="navbar-brand fw-semibold fs-3">Orlando Recycles</a>
+      {% block search_bar %}
+      <form class="d-flex" action="{% url 'search' %}" method="get">
+        <input class="form-control me-2" type="search" placeholder="Search..." name="q" />
+      </form>
+      {% endblock %}
     </div>
   </nav>
   {% block content %}
