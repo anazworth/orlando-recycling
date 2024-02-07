@@ -1,5 +1,6 @@
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 from .models import Item
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -24,13 +25,20 @@ def index(request):
 def search(request):
     query = request.GET.get("q")
 
+    if request.headers.get("Accept") == "application/json":
+        if query:
+            items = Item.objects.filter(name__icontains=query)
+        else:
+            items = []
+        return Response([{"id": item.id, "name": item.name} for item in items])
+
     if query:
         items = Item.objects.filter(name__icontains=query)
+        paginator = Paginator(items, 15)
+        page_number = request.GET.get("page")
+        items = paginator.get_page(page_number)
     else:
         items = []
-
-    if request.headers.get("Accept") == "application/json":
-        return Response([{"id": item.id, "name": item.name} for item in items])
 
     return render(request, "items/search.html", {"query": query, "items": items})
 
