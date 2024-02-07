@@ -34,8 +34,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("items.urls")),
     path("api/v1/", include("items.urls")),
+    path("", include("items.urls")),
 ]
 
 if environ.get("ENV") == "development":

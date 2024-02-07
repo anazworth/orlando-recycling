@@ -32,6 +32,8 @@ def search(request):
     if request.headers.get("Accept") == "application/json":
         return Response([{"id": item.id, "name": item.name} for item in items])
 
+    return render(request, "items/search.html", {"query": query, "items": items})
+
 @swagger_auto_schema(method="get", operation_description="Get an item by ID")
 @api_view(["GET"])
 def show(request, item_id):
@@ -46,4 +48,7 @@ def show(request, item_id):
             ],
     }
 
-    return Response(item_data)
+    if request.headers.get("Accept") == "application/json":
+        return Response(item_data)
+
+    return render(request, "items/show.html", {"item": item_data})

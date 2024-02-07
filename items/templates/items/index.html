@@ -1,7 +1,16 @@
 {% extends 'items/_layout.html' %}
 
 {% block content %}
-<div class="container">
-    <p>This is the index page</p>
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold text-body-emphasis">Orlando! Let's recycle together</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Search for an item and we'll help you figure out how to recycle it. Together, we can have a huge impact!</p>
+        <form class="me-3 d-flex gap-2 mx-auto justify-content-center" action="{% url 'search' %}" method="get">
+        <div class="d-flex gap-2">
+            <input class="form-control" type="search" placeholder="Search..." name="q" />
+            <button class="btn btn-outline-dark" type="submit">Search</button>
+        </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

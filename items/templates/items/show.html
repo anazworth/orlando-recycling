@@ -1,0 +1,17 @@
+{% extends 'items/_layout.html' %}
+
+{% block content %}
+<div class="container">
+    <div>
+    {% if item %}
+        <h1>{{item.name}}</h1>
+        <p>{{item.description}}</p>
+        <ul>
+            {% for tag in item.tags %}
+                <li>{{tag.name}} - {{tag.description}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
