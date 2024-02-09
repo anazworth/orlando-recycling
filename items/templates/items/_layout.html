@@ -27,7 +27,9 @@
   </style>
   <nav class="navbar container border-bottom">
     <div class="container">
-      <a href="/" class="navbar-brand fw-semibold fs-3">Orlando Recycles</a>
+      <a href="/" class="navbar-brand">
+        <img src="/static/assets/gw_orlando_logo.png" alt="Green Works Orlando logo" height="80">
+      </a>
       {% block search_bar %}
       <form role="search" class="col-5 col-md-3" action="{% url 'search' %}" method="get">
         <input class="form-control me-2" type="search" placeholder="Search..." name="q" />
@@ -39,10 +41,12 @@
   {% endblock %}
   <footer class="footer mt-auto py-4 container border-top d-flex flex-wrap justify-content-between align-items-center">
       <div class="col-md-4 d-flex align-items-center text-nowrap">
-        <a href="/" class="navbar-brand fs-4 mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">Orlando Recycles</a>
-        <span class="mb-3 mb-md-0 fw-normal">© {% now "Y" %} Orlando</span>
+        <a href="https://www.orlando.gov" class="navbar-brand fs-4 mb-3 me-2 mb-md-0">
+          <img src="/static/assets/city_of_orlando_logo.png" alt="City of Orlando logo" height="30">
+        </a>
+        <small class="fw-normal mt-sm-3">© {% now "Y" %} City of Orlando</small>
       </div>
-      <span style="font-family: Noto Sans Mono, monospace;">Made with ❤️ by Valencia CTSD</span>
+      <small style="font-family: Noto Sans Mono, monospace;">Made with ❤️ by Valencia CTSD</small>
   </footer>
 </body>
 </html>
