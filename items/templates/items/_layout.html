@@ -32,11 +32,15 @@
       </a>
       {% block search_bar %}
       <form role="search" class="col-5 col-md-3" action="{% url 'search' %}" method="get">
-        <input class="form-control me-2" type="search" placeholder="Search..." name="q" />
+          <div class="form-floating">
+              <input type="text" id="searchBar" name="q" class="form-control" placeholder="Search...">
+              <label for="searchBar" class="d-flex justify-content-between align-items-center text-muted"><span>Search...</span><span id="searchKBD">test</span></label>
+          </div>
       </form>
       {% endblock %}
     </div>
   </nav>
+
   {% block content %}
   {% endblock %}
   <footer class="footer mt-auto py-4 container border-top d-flex flex-wrap justify-content-between align-items-center">
@@ -48,5 +52,6 @@
       </div>
       <small style="font-family: Noto Sans Mono, monospace;">Made with ❤️ by Valencia CTSD</small>
   </footer>
+  <script src="../../../static/js/searchbar.js"></script>
 </body>
 </html>
