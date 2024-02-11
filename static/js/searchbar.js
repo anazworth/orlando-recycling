@@ -15,11 +15,16 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
     var isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
     var searchKBD = document.getElementById('searchKBD');
+    var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    if (isMobile) {
+        return;
+    }
 
     if (isMac) {
-        searchKBD.textContent = '⌘ + K'; // Unicode symbol for Command (⌘)
+        searchKBD.textContent = '⌘ K'; // Unicode symbol for Command (⌘)
     } else {
-        searchKBD.textContent = 'Ctrl + K';
+        searchKBD.textContent = 'Ctrl K';
     }
 });
 document.addEventListener('DOMContentLoaded', function() {
