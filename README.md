@@ -55,6 +55,12 @@ Edit the `docker-compose.yml` file to add the MySQL environment variables.
 docker-compose up -d # Start the MySQL database
 ```
 
+5. Run the database migrations
+
+```bash
+python manage.py migrate
+```
+
 ## Run the application
 
 ```bash
