@@ -34,7 +34,7 @@
       <form role="search" class="col-5 col-md-3" action="{% url 'search' %}" method="get">
           <div class="form-floating">
               <input type="text" id="searchBar" name="q" class="form-control" placeholder="Search...">
-              <label for="searchBar" class="d-flex justify-content-between align-items-center text-muted"><span>Search...</span><span id="searchKBD">test</span></label>
+              <label for="searchBar" class="d-flex justify-content-between align-items-center text-muted"><span>Search...</span><kbd id="searchKBD"></kbd></label>
           </div>
       </form>
       {% endblock %}
