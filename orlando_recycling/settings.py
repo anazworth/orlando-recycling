@@ -28,7 +28,7 @@ get_env = os.environ.get
 SECRET_KEY = get_env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if get_env("DJANGO_DEBUG") == "True" else False
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
