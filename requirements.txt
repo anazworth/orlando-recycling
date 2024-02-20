@@ -4,4 +4,3 @@ python-dotenv
 drf-yasg
 mysqlclient
 django-bootstrap5
-pytest-playwright
