@@ -32,7 +32,7 @@ DEBUG = True if get_env("DJANGO_DEBUG") == "True" else False
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["https://*.cheetoh-python.ts.net"] if get_env("ENV") == "development" else []
+CSRF_TRUSTED_ORIGINS = ["https://*.cheetoh-python.ts.net", "https://*"] if get_env("ENV") == "development" else []
 
 # Application definition
 

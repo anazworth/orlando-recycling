@@ -69,6 +69,18 @@ python manage.py runserver
 
 ## Testing
 
+1. Ensure that the testing dependencies are installed
+
+```bash
+pip install -r requirements.txt -r requirements-test.txt \
+playwright install \
+playwright install-deps
+```
+
+2. Ensure that the [setup](#setup) steps have been completed
+
+3. Run the tests
+
 ```bash
 python manage.py test
 ```

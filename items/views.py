@@ -1,3 +1,4 @@
+from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
@@ -22,6 +23,7 @@ def index(request):
                          )
                      ])
 @api_view(["GET"])
+@csrf_exempt
 def search(request):
     query = request.GET.get("q")
 
@@ -33,7 +35,7 @@ def search(request):
         return Response([{"id": item.id, "name": item.name} for item in items])
 
     if query:
-        items = Item.objects.filter(name__icontains=query)
+        items = Item.objects.filter(name__icontains=query).order_by("name")
         paginator = Paginator(items, 15)
         page_number = request.GET.get("page")
         items = paginator.get_page(page_number)
@@ -44,6 +46,7 @@ def search(request):
 
 @swagger_auto_schema(method="get", operation_description="Get an item by ID")
 @api_view(["GET"])
+@csrf_exempt
 def show(request, item_id):
     item = get_object_or_404(Item, pk=item_id)
 
