@@ -35,7 +35,7 @@ def search(request):
         return Response([{"id": item.id, "name": item.name} for item in items])
 
     if query:
-        items = Item.objects.filter(name__icontains=query)
+        items = Item.objects.filter(name__icontains=query).order_by("name")
         paginator = Paginator(items, 15)
         page_number = request.GET.get("page")
         items = paginator.get_page(page_number)
