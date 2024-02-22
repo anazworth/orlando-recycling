@@ -4,3 +4,4 @@ python-dotenv
 drf-yasg
 mysqlclient
 django-bootstrap5
+django-cors-headers
