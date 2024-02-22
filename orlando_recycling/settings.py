@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = ["https://*.cheetoh-python.ts.net", "https://*"] if get_env("ENV") == "development" else []
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 # Application definition
 
 INSTALLED_APPS = [
