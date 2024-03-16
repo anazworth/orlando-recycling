@@ -1,5 +1,4 @@
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from .models import Item
@@ -8,9 +7,11 @@ from rest_framework.decorators import api_view
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 
+
 # Create your views here.
 def index(request):
     return render(request, "items/index.html")
+
 
 @swagger_auto_schema(method="get",
                      operation_description="Search for items by name",
@@ -42,7 +43,10 @@ def search(request):
     else:
         items = []
 
-    return render(request, "items/search.html", {"query": query, "items": items})
+    return render(request,
+                  "items/search.html", {"query": query, "items": items}
+                  )
+
 
 @swagger_auto_schema(method="get", operation_description="Get an item by ID")
 @api_view(["GET"])
@@ -55,8 +59,8 @@ def show(request, item_id):
         "description": item.description,
         "tags": [
             {"name": tag.name, "description": tag.description}
-              for tag in item.tags.all()
-            ],
+            for tag in item.tags.all()
+        ],
     }
 
     if request.headers.get("Accept") == "application/json":
