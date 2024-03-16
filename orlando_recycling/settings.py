@@ -32,7 +32,8 @@ DEBUG = True if get_env("DJANGO_DEBUG") == "True" else False
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["https://*.cheetoh-python.ts.net", "https://*"] if get_env("ENV") == "development" else []
+CSRF_TRUSTED_ORIGINS = ["https://*.cheetoh-python.ts.net",
+                        "https://*"] if get_env("ENV") == "development" else []
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -69,6 +70,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "items.middleware.SearchLogMiddleware",
 ]
 
 ROOT_URLCONF = "orlando_recycling.urls"
