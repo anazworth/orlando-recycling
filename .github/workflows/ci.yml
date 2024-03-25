@@ -2,19 +2,18 @@ name: Django CI
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches: ["main", "dev"]
   pull_request:
-    branches: [ "main", "dev"]
+    branches: ["main", "dev"]
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
         python-version: [3.12]
-      
+
     services:
       mysql:
         image: mysql:8.3.0
@@ -30,7 +29,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-      
+
     env:
       DJANGO_SECRET_KEY: test_secret_key
       DJANGO_DEBUG: "True"
@@ -41,19 +40,19 @@ jobs:
       DB_PORT: 3306
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
-      run: |
-        python -m pip install --upgrade pip setuptools
-        pip install -r requirements.txt -r requirements-test.txt
-        playwright install
-    - name: Run Tests
-      run: |
-        python manage.py test
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools
+          pip install -r requirements.txt -r requirements-test.txt
+          playwright install
+      - name: Run Tests
+        run: |
+          python manage.py test
 
   package:
     needs: test
@@ -62,7 +61,7 @@ jobs:
       contents: read
       packages: write
       id-token: write
-    
+
     env:
       REGISTRY: ghcr.io
       IMAGE_NAME: ${{ github.repository }}
@@ -70,7 +69,8 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses:
+          actions/checkout@v3
 
           # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
@@ -78,7 +78,7 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: sigstore/cosign-installer@6e04d228eb30da1757ee4e1dd75a0ec73a653e06 #v3.1.1
         with:
-          cosign-release: 'v2.1.1'
+          cosign-release: "v2.2.2"
 
         # Set up BuildKit Docker container builder to be able to build
         # multi-platform images and export cache
