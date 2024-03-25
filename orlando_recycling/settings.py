@@ -32,7 +32,10 @@ DEBUG = True if get_env("DJANGO_DEBUG") == "True" else False
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["https://*.cheetoh-python.ts.net", "https://*"] if get_env("ENV") == "development" else []
+CSRF_TRUSTED_ORIGINS = ["https://*.cheetoh-python.ts.net",
+                        "https://*"] if get_env("ENV") == "development" else []
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
@@ -47,6 +50,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_yasg",
     "django_bootstrap5",
+    "corsheaders",
 ]
 
 SWAGGER_SETTINGS = {
@@ -58,6 +62,7 @@ SWAGGER_SETTINGS = {
 }
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -65,6 +70,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "items.middleware.SearchLogMiddleware",
 ]
 
 ROOT_URLCONF = "orlando_recycling.urls"

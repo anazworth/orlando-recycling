@@ -4,19 +4,40 @@
 {% endblock %}
 
 {% block content %}
-<div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold text-body-emphasis">Orlando! Let's recycle together</h1>
-    <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Search for an item and we'll help you figure out how to recycle it. Together, we can have a huge impact!</p>
-        <form class="me-3 d-flex gap-2 mx-auto justify-content-center" action="{% url 'search' %}" method="get">
-        <div class="d-flex gap-2">
-            <div class="form-floating">
-                <input type="text" id="searchBar" name="q" class="form-control" placeholder="Search...">
-                <label for="searchBar" class="d-flex justify-content-between align-items-center text-muted"><span>Search...</span><span id="searchKBD"></span></label>
+<div class="container">
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis">Orlando! Let's recycle together</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Search for an item and we'll help you figure out how to recycle it. Together, we can have a huge impact!</p>
+            <form class="me-3 d-flex gap-2 mx-auto justify-content-center" action="{% url 'search' %}" method="get">
+            <div class="d-flex gap-2">
+                <div class="form-floating">
+                    <input type="text" id="searchBar" name="q" class="form-control" placeholder="Search...">
+                    <label for="searchBar" class="d-flex justify-content-between align-items-center text-muted"><span>Search...</span><span id="searchKBD"></span></label>
+                </div>
+                <button class="btn btn-outline-dark" type="submit">Search</button>
             </div>
-            <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>
         </div>
-        </form>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-auto">
+            <iframe class="map" src="https://www.google.com/maps/d/embed?mid=17LlBiFcfHvmhjwEC0Kq4tibUgGUxsgc&ehbc=2E312F&noprof=1" width="410" height="400"></iframe>
+            <p><a href="https://www.google.com/maps/d/viewer?mid=17LlBiFcfHvmhjwEC0Kq4tibUgGUxsgc&femb=1&ll=28.538215664800045%2C-81.3389905750157&z=13" target="_blank">(View Map)</a></p>
+        </div>
+        <div class="col-sm-4 text-start ">
+            <p><strong>Recycling Drop-Off Locations</strong></p>
+            <p>If you live in an apartment or condo community and don't have access to recycling, bring your recycable materials to one of our convenient drop-off locations:</p>
+            <p><strong>Dover Shore Community Center</strong></p>
+            <p>1400 Gaston Foster Road</p>
+            <p><strong>Engelwood Neighborhood Center</strong></p>
+            <p>6123 Lacosta Drive</p>
+            <p><strong>Northwest Community Center</strong></p>
+            <p>3955 WD Judge Road</p>
+            <p><strong>Solid Waste Management Division</strong></p>
+            <p>1028 South Woods Avenue</p>
+            <p>(Front of the building)</p>
+        </div>
     </div>
 </div>
 {% endblock %}
